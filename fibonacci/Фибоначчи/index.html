@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Числа Фибоначчи</title>
+  <style>
+
+    body {
+      text-align: center;
+    }
+    #results, #timeTaken {
+      text-align: left;
+      display: inline-block;
+      margin: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  </style>
+
+
+</head>
+<body>
+  <h1>Числа Фибоначчи</h1>
+  <label for="nInput">Введите n: </label>
+  <input type="text" id="nInput">
+  <button id="calculateButton">Вычислить</button>
+
+  <div id="results"></div>
+  <p id="executionTime"></p>
+  
+
+  <script src="main.js"></script>
+  <script>
+    document.getElementById('calculateButton').addEventListener('click', function () {
+      const n = document.getElementById('nInput').value;
+      const startTime = performance.now();
+      const recursiveResult = fibonacciRecursive(n);
+      const loopResult = fibonacciLoop(n);
+      const arrayResult = fibonacciArray(n);
+      const binetResult = fibonacciBinet(n);
+      const isEven = isEvenFibonacci(n);
+      const endTime = performance.now();
+      const duration = endTime - startTime;
+
+      const resultsDiv = document.getElementById('results');
+      resultsDiv.innerHTML = '';
+      resultsDiv.innerHTML += `<p>1. n-е число Фибоначчи (рекурсия) для n = ${n} равно ${recursiveResult}</p>`;
+      resultsDiv.innerHTML += `<p>2. n-е число Фибоначчи (цикл) для n = ${n} равно ${loopResult}</p>`;
+      resultsDiv.innerHTML += `<p>3. n-е число Фибоначчи (массив) для n = ${n} равно ${arrayResult}</p>`;
+      resultsDiv.innerHTML += `<p>4. n-е число Фибоначчи (формула Бине) для n = ${n} равно ${binetResult}</p>`;
+      resultsDiv.innerHTML += `<p>5. n-е большое число Фибоначчи (четность) для n = ${n}: ${isEven}</p>`;
+
+      document.getElementById('timeTaken').innerHTML = `<p>Время выполнения: ${duration.toFixed(2)} миллисекунд</p>`;
+    });
+  </script>
+</body>
+</html>
