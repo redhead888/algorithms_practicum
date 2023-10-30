@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Декодирование Хаффмана</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+        }
+        #encodedText, #huffmanData, #decodeButton, #clearButton, #decodedResult, #errorOutput {
+            margin: 10px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Декодирование Хаффмана</h1>
+    <textarea id="encodedText" rows="4" cols="50" placeholder="Текст"></textarea><br>
+    <textarea id="huffmanData" rows="10" cols="50" placeholder="Таблица кодирования "></textarea><br>
+    <button id="decodeButton">Декодировать</button>
+    <div id="decodedResult"></div>
+    <div id="errorOutput" style="color: rgb(252, 92, 92);"></div>
+    <script src="main.js"></script>
+</body>
+</html>
